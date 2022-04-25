@@ -15,7 +15,7 @@ const Slider = () => {
     }
 
     return (
-        <div className="flex relative h-screen w-screen overflow-hidden">
+        <div className="flex relative h-screen overflow-hidden">
             <div className='flex absolute inset-y-0 m-auto justify-center items-center bg-white cursor-pointer opacity-50 z-10' style={{height:'50px', width:'50px', borderRadius: '50%', left: '10px'}}
             onClick={() => handleClick('left')}>
                 <ArrowLeftOutlined />
@@ -29,7 +29,7 @@ const Slider = () => {
                             <img src={item.image} alt='whey-protien'></img>
                         </div>
                         <div className="flex-1 flex flex-col justify-center">
-                            <h1 className="text-5xl font-bold">{item.title}</h1>
+                            <h1 className="text-6xl font-bold">{item.title}</h1>
                             <p className='uppercase tracking-wide' style={{margin: '50px 0'}}>{item.desc}</p>
                             <button className="w-max border-2 border-solid rounded-lg border-teal-800 p-2 hover:bg-teal-800 hover:text-white">SHOP MORE</button>
                         </div>
