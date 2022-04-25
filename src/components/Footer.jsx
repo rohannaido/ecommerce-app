@@ -7,7 +7,7 @@ import EmailIcon from '@mui/icons-material/Email';
 
 const Footer = () => {
     return (
-        <div className="flex" style={{height: '50vh'}}>
+        <div className="flex flex-col sm:flex-row" style={{height: '50vh'}}>
             <div className="flex-1 p-4 flex flex-col">
                 <h1 className='text-4xl font-bold my-2'>
                     ONE
@@ -28,7 +28,7 @@ const Footer = () => {
                 </div>
             </div>
 
-            <div className="flex-1 p-4 flex flex-col">
+            <div className="flex-1 p-4 hidden sm:flex flex-col">
                 <h3 className='text-2xl my-4'>Useful Links</h3>
                 <ul className='footer-ul flex flex-row flex-wrap '>
                     <li>Home</li>
@@ -44,7 +44,7 @@ const Footer = () => {
                 </ul>
             </div>
 
-            <div className="flex-1 p-4 flex flex-col">
+            <div className="flex-1 p-4 flex flex-col bg-slate-50 sm:bg-transparent">
                 <h3 className='text-2xl my-4'>Contact</h3>
                 <div className='my-2'>
                     <LocationOnIcon style={{marginRight: '10px'}}/>

@@ -15,7 +15,7 @@ const Slider = () => {
     }
 
     return (
-        <div className="flex relative h-screen overflow-hidden">
+        <div className="hidden relative h-screen overflow-hidden sm:flex">
             <div className='flex absolute inset-y-0 m-auto justify-center items-center bg-white cursor-pointer opacity-50 z-10' style={{height:'50px', width:'50px', borderRadius: '50%', left: '10px'}}
             onClick={() => handleClick('left')}>
                 <ArrowLeftOutlined />
@@ -25,7 +25,7 @@ const Slider = () => {
             transition: 'all 0.3s ease'}}>
                 {sliderItems.map((item) => (
                     <div className="flex flex-row flex-wrap h-screen w-screen" style={{backgroundColor: item.bg}}>
-                        <div className="flex-1 flex justify-center items-center" style={{minWidth: '50%'}}>
+                        <div className="flex-1 flex justify-center items-center" style={{minWidth: '50%', maxWidth: '90%'}}>
                             <img src={item.image} alt='whey-protien'></img>
                         </div>
                         <div className="flex-1 flex flex-col justify-center">

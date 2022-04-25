@@ -3,7 +3,7 @@ import { categories } from "../data";
 
 const Categories = () => {
     return (
-        <div className="flex">
+        <div className="flex flex-col sm:flex-row">
             {categories.map((item) => (
                 <CategoryItem item={item} />
             ))

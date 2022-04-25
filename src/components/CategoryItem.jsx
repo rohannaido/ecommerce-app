@@ -2,7 +2,7 @@
 const CategoryItem = ({item}) => {
     return (
         <div className="flex-1 relative m-3">
-            <div className="" style={{height: '70vh'}}>
+            <div className="h-48 sm:h-70vh ">
                 <img className="w-full h-full object-cover" src={item.img} alt="category"></img>
             </div>
             <div className="absolute top-0 left-0 h-full w-full flex flex-col justify-center items-center text-white">
