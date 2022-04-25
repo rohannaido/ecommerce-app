@@ -106,10 +106,18 @@ const Cart = () => {
                     </div>
                     <div className='border border-slate-300 border-solid rounded-md flex flex-col p-4 justify-between' style={{flex: '1', height: '60vh'}}>
                         <h1 className='text-center text-3xl'>ORDER SUMMARY</h1>
-                        <span>Subtotal $125</span>
-                        <span>Estimated Shipping $6</span>
-                        <span>Shipping Discount -$6</span>
-                        <span>Total $124</span>
+                        <div className='flex justify-between'>
+                            <span>Subtotal </span><span>$125</span>
+                        </div>
+                        <div className='flex justify-between'>
+                            <span>Estimated Shipping </span><span>$6</span>
+                        </div>
+                        <div className='flex justify-between'>
+                            <span>Shipping Discount </span><span>-$6</span>
+                        </div>
+                        <div className='flex justify-between text-xl font-bold'>
+                            <span>Total </span><span>$124</span>
+                        </div>
                         <button className='border border-solid border-teal-700 rounded-md p-2'>CHECKOUT NOW</button>
                     </div>
                 </div>
