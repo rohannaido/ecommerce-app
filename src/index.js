@@ -5,6 +5,7 @@ import Home from './pages/Home';
 import ProductList from './pages/ProductList'
 import Product from './pages/Product';
 import Register from './pages/Register'
+import Login from './pages/Login'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -12,6 +13,7 @@ root.render(
     {/* <Home /> */}
     {/* <ProductList /> */}
     {/* <Product /> */}
-    <Register />
+    {/* <Register /> */}
+    <Login />
   </React.StrictMode>
 );
