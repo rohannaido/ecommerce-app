@@ -24,8 +24,8 @@ const Slider = () => {
             style={{transform: "translateX(-"+ 100 * slideIndex + "vw)",
             transition: 'all 0.3s ease'}}>
                 {sliderItems.map((item) => (
-                    <div className="flex flex-row h-screen w-screen" style={{backgroundColor: item.bg}}>
-                        <div className="flex-2 h-full flex items-center">
+                    <div className="flex flex-row flex-wrap h-screen w-screen" style={{backgroundColor: item.bg}}>
+                        <div className="flex-1 flex justify-center items-center" style={{minWidth: '50%'}}>
                             <img src={item.image} alt='whey-protien'></img>
                         </div>
                         <div className="flex-1 flex flex-col justify-center">

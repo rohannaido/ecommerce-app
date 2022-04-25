@@ -9,7 +9,7 @@ const CategoryItem = ({item}) => {
                 <h1 className="text-4xl font-bold">
                     {item.title}
                 </h1>
-                <button className="p-3 bg-white text-xl text-slate-800 hover:bg-slate-900 hover:text-white">SHOP NOW</button>
+                <button className="m-3 p-3 bg-white text-xl text-slate-800 hover:bg-slate-900 hover:text-white">SHOP NOW</button>
             </div>
         </div>
     )
