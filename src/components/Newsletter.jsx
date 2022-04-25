@@ -2,7 +2,7 @@ import SendOutlinedIcon from '@mui/icons-material/SendOutlined';
 
 const Newsletter = () => {
     return (
-        <div className="flex flex-col justify-center items-center bg-emerald-300" style={{height: '60vh'}}>
+        <div className="flex flex-col justify-center items-center bg-emerald-200" style={{height: '60vh'}}>
             <h1 className="text-8xl font-semibold py-4">
                 Newsletter
             </h1>
@@ -10,7 +10,7 @@ const Newsletter = () => {
                 Get timely updates from your favourite products
             </p>
             <div className='flex justify-between bg-white' style={{width: '50%'}}>
-                <input className='outline-none pl-4 p-2' style={{flex: '10'}}></input>
+                <input className='outline-none pl-4 p-2' style={{flex: '10'}} placeholder="Your email..."></input>
                 <button className='hover:bg-slate-700 hover:text-white' style={{flex: '1'}}>
                     <SendOutlinedIcon />
                 </button>

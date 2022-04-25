@@ -11,10 +11,10 @@ const Product = ({item}) => {
         <div className="relative flex-1 bg-teal-50 m-3 flex justify-center items-center"
         onMouseEnter={() => setStyle("opacity-100")}
         onMouseLeave={() => setStyle("opacity-0")}>
-            <div style={{width: '350px'}}>
+            <div style={{width: '300px'}}>
                 <img className="h-full w-full" src={item.img} alt="product"></img>
             </div>
-            <div className={style + " absolute top-0 left-0 h-full w-full flex justify-center items-center z-10 bg-slate-800 bg-opacity-20"}>
+            <div className={style + " absolute top-0 left-0 h-full w-full flex justify-center items-center z-10 bg-slate-800 bg-opacity-20"} style={{transition: 'all 0.2s ease'}}>
                 <div className="m-2 bg-white h-10 w-10 flex justify-center items-center hover:scale-110 cursor-pointer" style={{borderRadius: '50%'}}>
                     <ShoppingCartOutlined />
                 </div>
