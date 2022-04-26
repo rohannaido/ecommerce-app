@@ -6,7 +6,7 @@ const Newsletter = () => {
             <h1 className="text-6xl sm:text-8xl font-semibold py-4">
                 Newsletter
             </h1>
-            <p className='py-4'>
+            <p className='p-4 text-center'>
                 Get timely updates from your favourite products
             </p>
             <div className='w-4/5 sm:w-1/2 flex justify-between bg-white'>

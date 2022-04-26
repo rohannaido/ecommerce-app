@@ -11,9 +11,9 @@ import Cart from './pages/Cart'
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    {/* <Home /> */}
+    <Home />
     {/* <ProductList /> */}
-    <Product />
+    {/* <Product /> */}
     {/* <Register /> */}
     {/* <Login /> */}
     {/* <Cart /> */}

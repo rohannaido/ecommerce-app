@@ -14,15 +14,15 @@ const Cart = () => {
                 <h1 className='text-3xl text-center my-4'>YOUR BAG</h1>
                 <div className='flex justify-between items-center p-2 m-4'>
                     <button className='border border-solid border-teal-700 p-2'>CONTINUE SHOPPING</button>
-                    <span>
+                    <span className='hidden sm:inline'>
                         <span className='underline mr-2'>Shopping Bag(2)</span>
                         <span className='underline ml-2'>Your Wishlist(0)</span>
                     </span>
                     <button className='text-white bg-teal-700 p-2'>CHECKOUT NOW</button>
                 </div>
-                <div className='flex'>
+                <div className='flex flex-col sm:flex-row '>
                     <div className='pl-6' style={{flex: '3'}}>
-                        <div className='flex justify-evenly'>
+                        <div className='flex flex-col sm:flex-row justify-evenly'>
                             <div className='flex'>
                                 <img src='https://hips.hearstapps.com/vader-prod.s3.amazonaws.com/1614188818-TD1MTHU_SHOE_ANGLE_GLOBAL_MENS_TREE_DASHERS_THUNDER_b01b1013-cd8d-48e7-bed9-52db26515dc4.png?crop=1xw:1.00xh;center,top&resize=480%3A%2A' style={{width: '200px'}}></img>
                                 <div className='flex flex-col justify-between p-4'>
@@ -38,7 +38,7 @@ const Cart = () => {
                                     </span>
                                 </div>
                             </div>
-                            <div className='flex flex-col justify-center items-center m-8'>
+                            <div className='flex flex-row sm:flex-col justify-between sm:justify-center items-center mx-5 sm:m-8'>
                                 <div className='flex items-center my-2'>
                                     <RemoveIcon className='cursor-pointer'/>
                                     <span className='flex justify-center items-center w-8 h-8 text-2xl'>1</span>
@@ -104,7 +104,7 @@ const Cart = () => {
                         <hr className='border-slate-300'></hr>
 
                     </div>
-                    <div className='border border-slate-300 border-solid rounded-md flex flex-col p-4 justify-between' style={{flex: '1', height: '60vh'}}>
+                    <div className='border border-slate-300 border-solid rounded-md flex flex-col p-4 justify-between h-72 sm:h-70vh'>
                         <h1 className='text-center text-3xl'>ORDER SUMMARY</h1>
                         <div className='flex justify-between'>
                             <span>Subtotal </span><span>$125</span>
