@@ -11,18 +11,18 @@ const ProductList = () => {
             <Announcement />
             
             <div>
-                <h1 className="text-4xl font-bold m-4">WHEY PROTIEN</h1>
+                <h1 className="text-center text-4xl font-bold m-4">WHEY PROTIEN</h1>
                 <div className="flex justify-between m-4">
-                    <div>
-                        <span className="font-bold">Filter Products:</span>
-                        <select className="border border-black border-solid p-1 m-1">
+                    <div className="flex flex-col sm:flex-row items-stretch sm:items-center">
+                        <span className="font-bold">Filter:</span>
+                        <select className="border border-slate-400 border-solid p-1 m-1">
                             <option selected>Color</option>
                             <option>Blue</option>
                             <option>Black</option>
                             <option>Orange</option>
                             <option>Purple</option>
                         </select>
-                        <select className="border border-black border-solid p-1 m-1">
+                        <select className="border border-slate-400 border-solid p-1 m-1">
                             <option selected>Size</option>
                             <option>XS</option>
                             <option>S</option>
@@ -33,9 +33,9 @@ const ProductList = () => {
                             <option>XXXL</option>
                         </select>
                     </div>
-                    <div>
-                        <span className="font-bold">Sort Products:</span>
-                        <select className="border border-black border-solid p-1 m-1">
+                    <div className="text-right flex flex-col sm:flex-row items-start sm:items-center">
+                        <span className="font-bold">Sort:</span>
+                        <select className="border border-slate-400 border-solid p-1 m-1">
                             <option selected>Newest</option>
                             <option>Rating</option>
                             <option>Popularity</option>

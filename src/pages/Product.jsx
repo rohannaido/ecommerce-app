@@ -11,15 +11,15 @@ const Product = () => {
             <Navbar />
             <Announcement />
 
-            <div className='flex p-10'>
-                <div className='flex-1' style={{height: '75vh'}}>
+            <div className='flex flex-col sm:flex-row p-10'>
+                <div className='flex-none sm:flex-1 h-64 sm:h-70vh'>
                     <img className='h-full w-full object-cover' src='https://i.ibb.co/S6qMxwr/jean.jpg'></img>
                 </div>
-                <div className='flex-1 px-8'>
-                    <h1 className='text-3xl font-bold mb-4'>Denim Jumpsuit</h1>
+                <div className='flex-none sm:flex-1 px-4 sm:px-8'>
+                    <h1 className='text-4xl font-light my-4'>Denim Jumpsuit</h1>
                     <p className='mb-4'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec venenatis, dolor in finibus malesuada, lectus ipsum porta nunc, at iaculis arcu nisi sed mauris. Nulla fermentum vestibulum ex, eget tristique tortor pretium ut. Curabitur elit justo, consequat id condimentum ac, volutpat ornare.</p>
                     <span className='text-3xl'>$ 20</span>
-                    <div className='flex w-1/2 justify-between items-center my-6'>
+                    <div className='flex w-full sm:w-1/2 justify-between items-center my-6'>
                         <div className='flex'>
                             <span className='mr-2'>Color</span>
                             <div className='mx-1 cursor-pointer' style={{height: '20px', width: '20px', borderRadius: '50%', backgroundColor: 'black'}}>
@@ -43,7 +43,7 @@ const Product = () => {
                             </select>
                         </div>
                     </div>
-                    <div className='flex w-1/2 justify-between items-center my-6'>
+                    <div className='flex w-full sm:w-1/2 justify-between items-center my-6'>
                         <div className='flex items-center'>
                             <RemoveIcon className='cursor-pointer'/>
                             <span className='flex justify-center items-center border-2 border-teal-600 border-solid w-8 h-8 rounded-lg mx-2'>1</span>
