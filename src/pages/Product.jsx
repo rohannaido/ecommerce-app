@@ -4,8 +4,15 @@ import Footer from '../components/Footer';
 import Newsletter from '../components/Newsletter';
 import RemoveIcon from '@mui/icons-material/Remove';
 import AddIcon from '@mui/icons-material/Add';
+import { useLocation } from 'react-router-dom';
+import { useEffect } from 'react';
+import axios from 'axios';
 
 const Product = () => {
+
+    const location = useLocation();
+    console.log(location);
+
     return (
         <div>
             <Navbar />
