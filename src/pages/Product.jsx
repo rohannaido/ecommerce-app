@@ -5,13 +5,48 @@ import Newsletter from '../components/Newsletter';
 import RemoveIcon from '@mui/icons-material/Remove';
 import AddIcon from '@mui/icons-material/Add';
 import { useLocation } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import axios from 'axios';
+import { publicRequest } from '../requestMethods';
 
 const Product = () => {
-
+    console.log("PRODUCT PAGE!!!!!!!!");
     const location = useLocation();
-    console.log(location);
+    const id = location.pathname.split("/")[2];
+    const [ product, setProduct ] = useState({})
+    const [ quantity, setQuantity ] = useState(1);
+    const [ color, setColor ] = useState("");
+    const [ size, setSize ] = useState("");
+
+    useEffect(() => {
+        const getProduct = async () => {
+            try {
+                const res = await publicRequest.get(`/products/find/${id}`);
+                setProduct(res.data);
+            }
+            catch (err) {
+                console.log(err);
+            }
+        }
+        getProduct();
+    },[id])
+
+    console.log('SIZE', size);
+    console.log('COLOR', color);
+    // product.color.map((item) =>  );
+
+    const handleClickQuantity = (operation) => {
+        if (operation === "inc" && quantity < 10){
+            setQuantity(quantity + 1);
+        }
+        else if (operation === "dec" && quantity > 1) {
+            setQuantity(quantity - 1);
+        }
+    }
+
+    const handleAddToCart = () => {
+        // console.log("Add to the CAAARRRT!")
+    }
 
     return (
         <div>
@@ -20,43 +55,48 @@ const Product = () => {
 
             <div className='flex flex-col sm:flex-row p-10'>
                 <div className='flex-none sm:flex-1 h-64 sm:h-70vh'>
-                    <img className='h-full w-full object-cover' src='https://i.ibb.co/S6qMxwr/jean.jpg'></img>
+                    <img className='h-full w-full object-cover' src={product.img}></img>
                 </div>
                 <div className='flex-none sm:flex-1 px-4 sm:px-8'>
-                    <h1 className='text-4xl font-light my-4'>Denim Jumpsuit</h1>
-                    <p className='mb-4'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec venenatis, dolor in finibus malesuada, lectus ipsum porta nunc, at iaculis arcu nisi sed mauris. Nulla fermentum vestibulum ex, eget tristique tortor pretium ut. Curabitur elit justo, consequat id condimentum ac, volutpat ornare.</p>
-                    <span className='text-3xl'>$ 20</span>
+                    <h1 className='text-4xl font-light my-4'>{product.title}</h1>
+                    <p className='mb-4'>{product.desc}</p>
+                    <span className='text-3xl'>$ {product.price}</span>
                     <div className='flex w-full sm:w-1/2 justify-between items-center my-6'>
                         <div className='flex'>
                             <span className='mr-2'>Color</span>
-                            <div className='mx-1 cursor-pointer' style={{height: '20px', width: '20px', borderRadius: '50%', backgroundColor: 'black'}}>
-                            </div>
-                            <div className='mx-1 cursor-pointer' style={{height: '20px', width: '20px', borderRadius: '50%', backgroundColor: 'blue'}}>
+                            {
+                                // made an extra condition as the page loads without product and color data and throws error on the map function
+                                // so only map on the color array when it exists
+                            product.color ? product.color.map((item) => { return (
+                                <div className='mx-1 cursor-pointer' style={{height: '20px', width: '20px', borderRadius: '50%', backgroundColor: item}} onClick={() => setColor(item)}>
+                                </div>
+                                )}
+                                ) : <></>
+                            }
+                            {/* <div className='mx-1 cursor-pointer' style={{height: '20px', width: '20px', borderRadius: '50%', backgroundColor: 'blue'}}>
                             </div>
                             <div className='mx-1 cursor-pointer' style={{height: '20px', width: '20px', borderRadius: '50%', backgroundColor: 'grey'}}>
-                            </div>
+                            </div> */}
                         </div>
                         <div>
                             <span>Size</span>
-                            <select className="border border-black border-solid p-1 m-1">
+                            <select className="border border-black border-solid p-1 m-1" onChange={(e) => setSize(e.target.value)}>
                                 <option selected>Size</option>
-                                <option>XS</option>
-                                <option>S</option>
-                                <option>M</option>
-                                <option>L</option>
-                                <option>XL</option>
-                                <option>XXL</option>
-                                <option>XXXL</option>
+                                {product.color ? product.size.map((item) => { return (
+                                    <option>{item}</option>
+                                    )}) : <></>
+                                }
                             </select>
                         </div>
                     </div>
                     <div className='flex w-full sm:w-1/2 justify-between items-center my-6'>
                         <div className='flex items-center'>
-                            <RemoveIcon className='cursor-pointer'/>
-                            <span className='flex justify-center items-center border-2 border-teal-600 border-solid w-8 h-8 rounded-lg mx-2'>1</span>
-                            <AddIcon className='cursor-pointer'/>
+                            <RemoveIcon className='cursor-pointer' onClick={() => handleClickQuantity('dec')}/>
+                            <span className='flex justify-center items-center border-2 border-teal-600 border-solid w-8 h-8 rounded-lg mx-2'>{quantity}</span>
+                            <AddIcon className='cursor-pointer' onClick={() => handleClickQuantity('inc')}/>
                         </div>
-                        <button className='border-2 border-solid border-teal-800 rounded-md p-2'>ADD TO CART</button>
+                        <button className='border-2 border-solid border-teal-800 rounded-md p-2' 
+                        onClick={handleAddToCart}>ADD TO CART</button>
                     </div>
                     <div>
                     </div>
