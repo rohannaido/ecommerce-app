@@ -9,11 +9,11 @@ const Products = ({cat, filters, sort}) => {
     const [ filteredProducts, setFilteredProducts ] = useState([]);
 
     useEffect(() => {
-        console.log("TEST");
         const getProducts = async () => {
             try {
+                console.log("after request in products component");
                 const res = await axios.get(cat ? `http://localhost:5000/api/products/?category=${cat}`: 'http://localhost:5000/api/products');
-                console.log(res);
+                console.log("PRODUCTS ",res);
                 setProducts(res.data);
 
             }

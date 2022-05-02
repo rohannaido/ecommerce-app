@@ -2,8 +2,13 @@ import { Search } from '@mui/icons-material';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import React from 'react';
 import { Badge } from '@mui/material';
+import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
+
+    const quantity = useSelector((state) => state.cart.quantity)
+
     return (
         <div className='p-2 sm:p-3 text-sm sm:text-base'>
             <div className='flex flex-row justify-between'>
@@ -22,11 +27,13 @@ const Navbar = () => {
                     <span className='mx-1 sm:m-2'>
                         Sign In
                     </span>
-                    <div className='flex flex-row p-2'>
-                    <Badge badgeContent={10} color='primary'>
-                        <ShoppingCartOutlinedIcon />
-                    </Badge>
-                    </div>
+                    <Link to="/cart">
+                        <div className='flex flex-row p-2'>
+                            <Badge badgeContent={quantity} color='primary'>
+                                <ShoppingCartOutlinedIcon />
+                            </Badge>
+                        </div>
+                    </Link>
                 </div>
             </div>
         </div>

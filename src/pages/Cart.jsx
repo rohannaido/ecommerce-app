@@ -3,8 +3,30 @@ import Announcement from '../components/Announcement';
 import Footer from '../components/Footer';
 import RemoveIcon from '@mui/icons-material/Remove';
 import AddIcon from '@mui/icons-material/Add';
+import { useSelector } from 'react-redux';
+import axios from 'axios';
 
 const Cart = () => {
+
+    const cart = useSelector(state => state.cart);
+    console.log(cart);
+
+    //CHECKOUT
+    const clickHandler = async () => {
+        try{
+            console.log("CLICKED")
+            const res = await axios.post("http://localhost:5000/api/checkout/create-payment-session", {
+                items: cart.products,
+            }
+            );
+            window.location = res.data.url;
+            
+        }
+        catch(err){
+            console.log(err);
+        }
+    }
+
     return (
         <div>
             <Navbar />
@@ -22,92 +44,44 @@ const Cart = () => {
                 </div>
                 <div className='flex flex-col sm:flex-row '>
                     <div className='pl-6' style={{flex: '3'}}>
+
+                    { cart.products.map((product) => { 
+                        return(
                         <div className='flex flex-col sm:flex-row justify-evenly'>
                             <div className='flex'>
-                                <img src='https://hips.hearstapps.com/vader-prod.s3.amazonaws.com/1614188818-TD1MTHU_SHOE_ANGLE_GLOBAL_MENS_TREE_DASHERS_THUNDER_b01b1013-cd8d-48e7-bed9-52db26515dc4.png?crop=1xw:1.00xh;center,top&resize=480%3A%2A' style={{width: '200px'}}></img>
+                                <img src={product.img} style={{width: '200px'}}></img>
                                 <div className='flex flex-col justify-between p-4'>
                                     <span>
-                                        <strong>Product: </strong>HAKURA T-SHIRT
+                                        <strong>Product: </strong>{product.title}
                                     </span>
                                     <span>
-                                        <strong>ID: </strong>93813718293
+                                        <strong>ID: </strong>{product._id}
                                     </span>
-                                    <div className='bg-slate-600' style={{height: '20px', width: '20px', borderRadius: '50%'}}></div>
+                                    <div className='' style={{height: '20px', width: '20px', borderRadius: '50%', backgroundColor: product.color}}></div>
                                     <span>
-                                        <strong>Size: </strong>XL
+                                        <strong>Size: </strong>{product.size}
                                     </span>
                                 </div>
                             </div>
                             <div className='flex flex-row sm:flex-col justify-between sm:justify-center items-center mx-5 sm:m-8'>
                                 <div className='flex items-center my-2'>
                                     <RemoveIcon className='cursor-pointer'/>
-                                    <span className='flex justify-center items-center w-8 h-8 text-2xl'>1</span>
+                                    <span className='flex justify-center items-center w-8 h-8 text-2xl'>{product.quantity}</span>
                                     <AddIcon className='cursor-pointer'/>
                                 </div>
-                                <span className='text-3xl my-2'>$ 20</span>
+                                <span className='text-3xl my-2'>{product.price*product.quantity}</span>
                             </div>
+                            <hr className='border-slate-300'></hr>
                         </div>
-                        <hr className='border-slate-300'></hr>
-
-                        <div className='flex justify-evenly'>
-                            <div className='flex'>
-                                <img src='https://i.pinimg.com/originals/2d/af/f8/2daff8e0823e51dd752704a47d5b795c.png' style={{width: '200px'}}></img>
-                                <div className='flex flex-col justify-between p-4'>
-                                    <span>
-                                        <strong>Product: </strong>HAKURA T-SHIRT
-                                    </span>
-                                    <span>
-                                        <strong>ID: </strong>93813718293
-                                    </span>
-                                    <div className='bg-slate-600' style={{height: '20px', width: '20px', borderRadius: '50%'}}></div>
-                                    <span>
-                                        <strong>Size: </strong>XL
-                                    </span>
-                                </div>
-                            </div>
-                            <div className='flex flex-col justify-center items-center m-8'>
-                                <div className='flex items-center my-2'>
-                                    <RemoveIcon className='cursor-pointer'/>
-                                    <span className='flex justify-center items-center w-8 h-8 text-2xl'>1</span>
-                                    <AddIcon className='cursor-pointer'/>
-                                </div>
-                                <span className='text-3xl my-2'>$ 20</span>
-                            </div>
-                        </div>
-                        <hr className='border-slate-300'></hr>
-
-                        <div className='flex justify-evenly'>
-                            <div className='flex'>
-                                <img src='https://i.pinimg.com/originals/2d/af/f8/2daff8e0823e51dd752704a47d5b795c.png' style={{width: '200px'}}></img>
-                                <div className='flex flex-col justify-between p-4'>
-                                    <span>
-                                        <strong>Product: </strong>HAKURA T-SHIRT
-                                    </span>
-                                    <span>
-                                        <strong>ID: </strong>93813718293
-                                    </span>
-                                    <div className='bg-slate-600' style={{height: '20px', width: '20px', borderRadius: '50%'}}></div>
-                                    <span>
-                                        <strong>Size: </strong>XL
-                                    </span>
-                                </div>
-                            </div>
-                            <div className='flex flex-col justify-center items-center m-8'>
-                                <div className='flex items-center my-2'>
-                                    <RemoveIcon className='cursor-pointer'/>
-                                    <span className='flex justify-center items-center w-8 h-8 text-2xl'>1</span>
-                                    <AddIcon className='cursor-pointer'/>
-                                </div>
-                                <span className='text-3xl my-2'>$ 20</span>
-                            </div>
-                        </div>
-                        <hr className='border-slate-300'></hr>
+                        )}
+                        )
+                    }
 
                     </div>
                     <div className='border border-slate-300 border-solid rounded-md flex flex-col p-4 justify-between h-72 sm:h-70vh'>
                         <h1 className='text-center text-3xl'>ORDER SUMMARY</h1>
                         <div className='flex justify-between'>
-                            <span>Subtotal </span><span>$125</span>
+                            <span>Subtotal </span><span>${cart.total}</span>
                         </div>
                         <div className='flex justify-between'>
                             <span>Estimated Shipping </span><span>$6</span>
@@ -116,9 +90,9 @@ const Cart = () => {
                             <span>Shipping Discount </span><span>-$6</span>
                         </div>
                         <div className='flex justify-between text-xl font-bold'>
-                            <span>Total </span><span>$124</span>
+                            <span>Total </span><span>${cart.total}</span>
                         </div>
-                        <button className='border border-solid border-teal-700 rounded-md p-2'>CHECKOUT NOW</button>
+                        <button className='border border-solid border-teal-700 rounded-md p-2' onClick={clickHandler}>CHECKOUT NOW</button>
                     </div>
                 </div>
 

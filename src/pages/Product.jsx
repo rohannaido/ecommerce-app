@@ -8,6 +8,8 @@ import { useLocation } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { publicRequest } from '../requestMethods';
+import { addProduct } from '../redux/cartRedux';
+import { useDispatch } from 'react-redux';
 
 const Product = () => {
     console.log("PRODUCT PAGE!!!!!!!!");
@@ -17,6 +19,7 @@ const Product = () => {
     const [ quantity, setQuantity ] = useState(1);
     const [ color, setColor ] = useState("");
     const [ size, setSize ] = useState("");
+    const dispatch = useDispatch();
 
     useEffect(() => {
         const getProduct = async () => {
@@ -45,7 +48,8 @@ const Product = () => {
     }
 
     const handleAddToCart = () => {
-        // console.log("Add to the CAAARRRT!")
+        dispatch(addProduct({ ...product, quantity, color, size }));
+        // console.log("Add to the CAAARRRT!");
     }
 
     return (
