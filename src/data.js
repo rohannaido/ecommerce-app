@@ -22,21 +22,21 @@ export const sliderItems = [
 export const categories = [
     {
       id: 1,
-      img: "https://images.pexels.com/photos/5886041/pexels-photo-5886041.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-      title: "SHIRT STYLE!",
-      cat: "shirts"
+      img: "https://content.optimumnutrition.com/i/on/homepage-image-protein?w=400",
+      title: "WHEY PROTIEN",
+      cat: "whey"
     },
     {
       id: 2,
-      img: "https://images.pexels.com/photos/2983464/pexels-photo-2983464.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-      title: "LOUNGEWEAR LOVE",
-      cat: "lounge wear"
+      img: "https://img2.hkrtcdn.com/13489/prd_1348821-MuscleBlaze-PRE-Workout-200-0.22-lb-Fruit-Splash_o.jpg",
+      title: "PRE WORKOUT",
+      cat: "preworkout"
     },
     {
       id: 3,
-      img: "https://images.pexels.com/photos/5480696/pexels-photo-5480696.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
-      title: "LIGHT JACKETS",
-      cat: "jeans"
+      img: "https://images.pexels.com/photos/3683116/pexels-photo-3683116.jpeg",
+      title: "VITAMINS & SUPPLEMENTS",
+      cat: "vitamins"
     },
   ];
 

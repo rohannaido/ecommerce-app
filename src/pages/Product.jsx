@@ -10,6 +10,7 @@ import axios from 'axios';
 import { publicRequest } from '../requestMethods';
 import { addProduct } from '../redux/cartRedux';
 import { useDispatch } from 'react-redux';
+import Toast from '../components/Toast'
 
 const Product = () => {
     console.log("PRODUCT PAGE!!!!!!!!");
@@ -20,7 +21,7 @@ const Product = () => {
     const [ color, setColor ] = useState("");
     const [ size, setSize ] = useState("");
     const dispatch = useDispatch();
-
+    const [ showToast, setShowToast ] = useState(false);
     useEffect(() => {
         const getProduct = async () => {
             try {
@@ -49,14 +50,15 @@ const Product = () => {
 
     const handleAddToCart = () => {
         dispatch(addProduct({ ...product, quantity, color, size }));
-        // console.log("Add to the CAAARRRT!");
+        setShowToast(true);
+        setTimeout(() => setShowToast(false), 3000);
     }
 
     return (
         <div>
             <Navbar />
             <Announcement />
-
+            <Toast text="Added to your cart" display={showToast} />
             <div className='flex flex-col sm:flex-row p-10'>
                 <div className='flex-none sm:flex-1 h-64 sm:h-70vh'>
                     <img className='h-full w-full object-cover' src={product.img}></img>
@@ -64,7 +66,7 @@ const Product = () => {
                 <div className='flex-none sm:flex-1 px-4 sm:px-8'>
                     <h1 className='text-4xl font-light my-4'>{product.title}</h1>
                     <p className='mb-4'>{product.desc}</p>
-                    <span className='text-3xl'>$ {product.price}</span>
+                    <span className='text-3xl'>₹ {product.price}</span>
                     <div className='flex w-full sm:w-1/2 justify-between items-center my-6'>
                         <div className='flex'>
                             <span className='mr-2'>Color</span>

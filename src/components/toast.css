@@ -1,0 +1,14 @@
+.show {
+    visibility: visible;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  }
+  
+  @keyframes fadein {
+    from {top: 0; opacity: 0;}
+    to {top: 0.25rem; opacity: 1;}
+  }
+  
+  @keyframes fadeout {
+    from {top: 0.25rem; opacity: 1;}
+    to {top: 0; opacity: 0;}
+  }
