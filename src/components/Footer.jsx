@@ -33,12 +33,11 @@ const Footer = () => {
                 <ul className='footer-ul flex flex-row flex-wrap '>
                     <li>Home</li>
                     <li>Cart</li>
-                    <li>Man Fashion</li>
-                    <li>Woman Fashion</li>
-                    <li>Accessories</li>
+                    <li>Whey Protien</li>
+                    <li>Pre Workout</li>
+                    <li>Plant Protien</li>
                     <li>My Account</li>
                     <li>Order Tracking</li>
-                    <li>Wishlist</li>
                     <li>Wishlist</li>
                     <li>Terms</li>
                 </ul>
