@@ -15,7 +15,7 @@ const Product = ({item}) => {
 
     const cartClick = (id) => {
         console.log("IDDDD: ", id, " ITEM ", item);
-        dispatch(addProduct({...item, quantity: 1}));
+        dispatch(addProduct({...item, quantity: 1, flavour: item.flavour[0], weight: item.weight[0]}));
         setShowToast(true);
         setTimeout(() => setShowToast(false), 3000);
     }
