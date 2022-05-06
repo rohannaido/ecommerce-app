@@ -75,9 +75,12 @@ const Cart = () => {
                                     {/* <span>
                                         <strong>ID: </strong>{product._id}
                                     </span> */}
-                                    <div className='' style={{height: '20px', width: '20px', borderRadius: '50%', backgroundColor: product.color}}></div>
+                                    {/* <div className='' style={{height: '20px', width: '20px', borderRadius: '50%', backgroundColor: product.color}}></div> */}
                                     <span>
-                                        <strong>Size: </strong>{product.size}
+                                        <strong>Flavour: </strong>{product.flavour}
+                                    </span>
+                                    <span>
+                                        <strong>Weight: </strong>{product.weight}
                                     </span>
                                     <span className='cursor-pointer text-red-700' data-key={index} onClick={deleteHandler} >
                                         Delete

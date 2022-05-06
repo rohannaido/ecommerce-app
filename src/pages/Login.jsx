@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux";
 import { login } from '../redux/apiCalls';
 
@@ -22,7 +23,9 @@ const Login = () => {
                 <button className="w-1/3 bg-teal-800 text-white px-4 py-2 m-2 disabled:bg-gray-600 disabled:text-gray-800" onClick={handleLoginClick} disabled={isFetching}>LOGIN</button>
                 {error && <span className="mx-2 text-red-600">Something went wrong...</span>}
                 <span className="mx-2 underline cursor-pointer">Do not remember your password?</span>
-                <span className="mx-2 underline cursor-pointer">Create a new Account?</span>
+                <Link to="/register">
+                    <span className="mx-2 underline cursor-pointer">Create a new Account?</span> 
+                </Link>
             </form>
         </div>
     )

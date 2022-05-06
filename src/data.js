@@ -1,18 +1,18 @@
 export const sliderItems = [
 {
-    image: '/assets/images/muscle-blaze.jpg',
+    image: 'https://img9.hkrtcdn.com/19799/bnr_1979878_o.jpg',
     title: 'MUSCLE BLAZE',
     desc: "This is India's best protein!! Recommended by Best atheletes.",
     bg: "#ddd6fe"
 },
 {
-    image: 'assets/images/optimum-nutrition.jpg',
+    image: 'https://img9.hkrtcdn.com/19798/bnr_1979778_o.jpg',
     title: 'OPTIMUM NUTRITION',
     desc: "This is India's best protein!! Recommended by Best atheletes.",
     bg: "#f5d0fe"
 },
 {
-    image: 'assets/images/muscle-tech.jpg',
+    image: 'https://img7.hkrtcdn.com/19806/bnr_1980526_o.jpg',
     title: 'MUSCLETECH',
     desc: "This is India's best protein!! Recommended by Best atheletes.",
     bg: "#fecdd3"

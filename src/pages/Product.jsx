@@ -18,8 +18,8 @@ const Product = () => {
     const id = location.pathname.split("/")[2];
     const [ product, setProduct ] = useState({})
     const [ quantity, setQuantity ] = useState(1);
-    const [ color, setColor ] = useState("");
-    const [ size, setSize ] = useState("");
+    const [ flavour, setFlavour ] = useState("");
+    const [ weight, setWeight ] = useState("");
     const dispatch = useDispatch();
     const [ showToast, setShowToast ] = useState(false);
     useEffect(() => {
@@ -27,6 +27,8 @@ const Product = () => {
             try {
                 const res = await publicRequest.get(`/products/find/${id}`);
                 setProduct(res.data);
+                setFlavour(res.data.flavour[0]);
+                setWeight(res.data.weight[0]);
             }
             catch (err) {
                 console.log(err);
@@ -35,8 +37,8 @@ const Product = () => {
         getProduct();
     },[id])
 
-    console.log('SIZE', size);
-    console.log('COLOR', color);
+    console.log('Weight', weight);
+    console.log('FLAVOUR', flavour);
     // product.color.map((item) =>  );
 
     const handleClickQuantity = (operation) => {
@@ -49,7 +51,7 @@ const Product = () => {
     }
 
     const handleAddToCart = () => {
-        dispatch(addProduct({ ...product, quantity, color, size }));
+        dispatch(addProduct({ ...product, quantity, flavour, weight }));
         setShowToast(true);
         setTimeout(() => setShowToast(false), 3000);
     }
@@ -69,26 +71,21 @@ const Product = () => {
                     <span className='text-3xl'>₹ {product.price}</span>
                     <div className='flex w-full sm:w-1/2 justify-between items-center my-6'>
                         <div className='flex'>
-                            <span className='mr-2'>Color</span>
-                            {
-                                // made an extra condition as the page loads without product and color data and throws error on the map function
-                                // so only map on the color array when it exists
-                            product.color ? product.color.map((item) => { return (
-                                <div className='mx-1 cursor-pointer' style={{height: '20px', width: '20px', borderRadius: '50%', backgroundColor: item}} onClick={() => setColor(item)}>
-                                </div>
-                                )}
-                                ) : <></>
-                            }
-                            {/* <div className='mx-1 cursor-pointer' style={{height: '20px', width: '20px', borderRadius: '50%', backgroundColor: 'blue'}}>
-                            </div>
-                            <div className='mx-1 cursor-pointer' style={{height: '20px', width: '20px', borderRadius: '50%', backgroundColor: 'grey'}}>
-                            </div> */}
+                            <span className='flex justify-center items-center'>Flavour</span>
+                            <select className="border border-black border-solid p-1 m-1" onChange={(e) => setFlavour(e.target.value)}>
+                                <option default disabled>Flavour</option>
+                                {console.log(product)}
+                                {product.flavour ? product.flavour.map((item) => { return (
+                                    <option>{item}</option>
+                                    )}) : <></>
+                                }
+                            </select>
                         </div>
-                        <div>
-                            <span>Size</span>
-                            <select className="border border-black border-solid p-1 m-1" onChange={(e) => setSize(e.target.value)}>
-                                <option selected>Size</option>
-                                {product.color ? product.size.map((item) => { return (
+                        <div className='flex'>
+                            <span className='flex justify-center items-center'>Weight</span>
+                            <select className="border border-black border-solid p-1 m-1" onChange={(e) => setWeight(e.target.value)}>
+                                <option default disabled>Weight</option>
+                                {product.weight ? product.weight.map((item) => { return (
                                     <option>{item}</option>
                                     )}) : <></>
                                 }
@@ -109,7 +106,7 @@ const Product = () => {
                 </div>
             </div>
 
-            <Newsletter />
+            {/* <Newsletter /> */}
             <Footer />
         </div>
     )

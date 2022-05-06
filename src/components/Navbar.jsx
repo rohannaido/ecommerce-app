@@ -26,12 +26,16 @@ const Navbar = () => {
                 </Link>
                 <div className=' flex flex-column justify-end items-center flex-1'>
                     {!user && <>
-                    <span className='mx-1 sm:m-2'>
-                        Register
-                    </span> 
-                    <span className='mx-1 sm:m-2'>
-                        Sign In
-                    </span>
+                    <Link to="/register">
+                        <span className='mx-1 sm:m-2 cursor-pointer'>
+                            Register
+                        </span> 
+                    </Link>
+                    <Link to="/login">
+                        <span className='mx-1 sm:m-2 cursor-pointer'>
+                            Sign In
+                        </span>
+                    </Link>
                     </>}
                     <Link to="/cart">
                         <div className='flex flex-row p-2'>

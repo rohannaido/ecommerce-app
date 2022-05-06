@@ -40,22 +40,19 @@ const ProductList = () => {
                 <div className="flex justify-between m-4">
                     <div className="flex flex-col sm:flex-row items-stretch sm:items-center">
                         <span className="font-bold">Filter:</span>
-                        <select name="color" className="border border-slate-400 border-solid p-1 m-1" onChange={handleFilters}>
-                            <option default disabled>Color</option>
-                            <option>Blue</option>
-                            <option>Black</option>
-                            <option>Orange</option>
-                            <option>Purple</option>
+                        <select name="flavour" className="border border-slate-400 border-solid p-1 m-1" onChange={handleFilters}>
+                            <option default disabled>Flavour</option>
+                            <option>chocolate</option>
+                            <option>coffee</option>
+                            <option>vanilla</option>
+                            <option>milkshake</option>
                         </select>
-                        <select name="size" className="border border-slate-400 border-solid p-1 m-1" onChange={handleFilters}>
-                            <option disabled>Size</option>
-                            <option>XS</option>
-                            <option>S</option>
-                            <option>M</option>
-                            <option>L</option>
-                            <option>XL</option>
-                            <option>XXL</option>
-                            <option>XXXL</option>
+                        <select name="weight" className="border border-slate-400 border-solid p-1 m-1" onChange={handleFilters}>
+                            <option disabled>Weight</option>
+                            <option>0.5kg</option>
+                            <option>1kg</option>
+                            <option>2kg</option>
+                            <option>4kg</option>
                         </select>
                     </div>
                     <div className="text-right flex flex-col sm:flex-row items-start sm:items-center">
