@@ -58,7 +58,7 @@ const Cart = () => {
                         <span className='underline mr-2'>Shopping Bag(2)</span>
                         <span className='underline ml-2'>Your Wishlist(0)</span>
                     </span>
-                    <button className='text-white bg-teal-700 p-2'>CHECKOUT NOW</button>
+                    <button className='text-white bg-teal-700 p-2' onClick={clickHandler}>CHECKOUT NOW</button>
                 </div>
                 <div className='flex flex-col sm:flex-row relative'>
                     <div className='pl-6' style={{flex: '3'}}>
@@ -115,7 +115,7 @@ const Cart = () => {
                         <div className='flex justify-between text-xl font-bold'>
                             <span>Total </span><span>₹{cart.total}</span>
                         </div>
-                        <button className='border border-solid border-teal-700 rounded-md p-2' onClick={clickHandler}>CHECKOUT NOW</button>
+                        <button className='border border-solid bg-teal-700 text-white hover:bg-teal-200 hover:text-teal-800  font-bold rounded-md p-2' onClick={clickHandler}>CHECKOUT NOW</button>
                     </div>
                 </div>
 
