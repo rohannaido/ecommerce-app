@@ -9,15 +9,17 @@ import { useSelector, useDispatch } from 'react-redux';
 import axios from 'axios';
 import { removeProduct, updateQuantity } from '../redux/cartRedux';
 import { Link } from 'react-router-dom';
-
+import AddressForm from '../components/AddressForm';
 const Cart = () => {
 
     const cart = useSelector(state => state.cart);
     console.log(cart);
     const dispatch = useDispatch();
     const [ showToast, setShowToast ] = useState(false);
+    const [ address, setAddress ] = useState({});
+    const [ showAddressForm , setShowAddressForm ] = useState(false);
     //CHECKOUT
-    const clickHandler = async () => {
+    const paymentHandler = async () => {
         try{
             console.log("CLICKED")
             const res = await axios.post("http://localhost:5000/api/checkout/create-payment-session", {
@@ -46,7 +48,7 @@ const Cart = () => {
         <div>
             <Navbar />
             <Announcement />
-
+            <AddressForm address={address} setAddress={setAddress} showAddressForm={showAddressForm} setShowAddressForm={setShowAddressForm} paymentHandler={paymentHandler}/>
             <div>
                 <Toast text="Deleted from your cart" display={showToast} />
                 <h1 className='text-3xl text-center my-4'>YOUR BAG</h1>
@@ -58,7 +60,7 @@ const Cart = () => {
                         <span className='underline mr-2'>Shopping Bag(2)</span>
                         <span className='underline ml-2'>Your Wishlist(0)</span>
                     </span>
-                    <button className='text-white bg-teal-700 p-2' onClick={clickHandler}>CHECKOUT NOW</button>
+                    <button className='text-white bg-teal-700 p-2' onClick={() => setShowAddressForm(true)}>CHECKOUT NOW</button>
                 </div>
                 <div className='flex flex-col sm:flex-row relative'>
                     <div className='pl-6' style={{flex: '3'}}>
@@ -115,7 +117,7 @@ const Cart = () => {
                         <div className='flex justify-between text-xl font-bold'>
                             <span>Total </span><span>₹{cart.total}</span>
                         </div>
-                        <button className='border border-solid bg-teal-700 text-white hover:bg-teal-200 hover:text-teal-800  font-bold rounded-md p-2' onClick={clickHandler}>CHECKOUT NOW</button>
+                        <button className='border border-solid bg-teal-700 text-white hover:bg-teal-200 hover:text-teal-800  font-bold rounded-md p-2' onClick={() => setShowAddressForm(true)}>CHECKOUT NOW</button>
                     </div>
                 </div>
 

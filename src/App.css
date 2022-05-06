@@ -27,8 +27,19 @@ body {
   margin: 0.25rem 0;
 }
 
+
+
 @layer utilities {
   .h-70vh{
     height: 70vh;
+  }
+}
+
+@layer components {
+  .address-label{
+    @apply block mt-2 text-xs font-bold;
+  }
+  .address-input{
+    @apply w-full border-solid border border-gray-500 rounded-md px-2 py-1;
   }
 }

@@ -7,6 +7,7 @@ import Register from './pages/Register'
 import Login from './pages/Login'
 import Cart from './pages/Cart'
 import { useSelector } from 'react-redux';
+import AddressForm from './components/AddressForm';
 
 
 const App = () => {
@@ -17,10 +18,6 @@ const App = () => {
       <Router>
         <Routes>
           <Route path="/" element={<Home />} />
-          {/* // {
-          //   user ? <Home /> : <Navigate to="/login" />
-          // } 
-          //   /> */}
           <Route path="/products/:category" element={<ProductList />} />
           <Route path="/product/:id" element={<Product />} />
           <Route
