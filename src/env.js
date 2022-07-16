@@ -1,0 +1,1 @@
+export const BASE_URL = "https://ecommerceapi19.herokuapp.com/api/";

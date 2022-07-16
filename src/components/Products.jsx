@@ -2,6 +2,7 @@ import Product from "./Product";
 import { popularProducts } from "../data";
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import { BASE_URL } from '../env';
 
 const Products = ({cat, filters, sort}) => {
 
@@ -12,7 +13,7 @@ const Products = ({cat, filters, sort}) => {
         const getProducts = async () => {
             try {
                 console.log("after request in products component");
-                const res = await axios.get(cat ? `http://localhost:5000/api/products/?category=${cat}`: 'http://localhost:5000/api/products');
+                const res = await axios.get(cat ? `${BASE_URL}products/?category=${cat}`: `${BASE_URL}products`);
                 console.log("PRODUCTS ",res);
                 setProducts(res.data);
 
