@@ -10,6 +10,8 @@ import axios from 'axios';
 import { removeProduct, updateQuantity } from '../redux/cartRedux';
 import { Link } from 'react-router-dom';
 import AddressForm from '../components/AddressForm';
+import { BASE_URL } from '../env';
+
 const Cart = () => {
 
     const cart = useSelector(state => state.cart);
@@ -22,7 +24,7 @@ const Cart = () => {
     const paymentHandler = async () => {
         try{
             console.log("CLICKED")
-            const res = await axios.post("http://localhost:5000/api/checkout/create-payment-session", {
+            const res = await axios.post(`${BASE_URL}checkout/create-payment-session`, {
                 items: cart.products,
             }
             );

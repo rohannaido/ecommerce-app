@@ -4,6 +4,7 @@ import TwitterIcon from '@mui/icons-material/Twitter';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import PhoneIcon from '@mui/icons-material/Phone';
 import EmailIcon from '@mui/icons-material/Email';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
     return (
@@ -13,7 +14,8 @@ const Footer = () => {
                     ONE
                 </h1>
                 <p className='my-4'>
-                MuscleBlaze® was founded in 2012 with the idea of providing India with sports nutrition supplements that are specifically focused on Indian customer needs and listens to their sentiments day in day out.
+                One Nutrition® was founded in 2015 with the idea of providing India with sports nutrition supplements 
+                that are specifically focused on Indian customer needs and listens to their sentiments day in day out.
                 </p>
                 <div className='flex justify-center'>
                     <span className='m-4'>
@@ -31,11 +33,21 @@ const Footer = () => {
             <div className="flex-1 p-4 hidden sm:flex flex-col">
                 <h3 className='text-2xl my-4'>Useful Links</h3>
                 <ul className='footer-ul flex flex-row flex-wrap '>
-                    <li>Home</li>
-                    <li>Cart</li>
-                    <li>Whey Protien</li>
-                    <li>Pre Workout</li>
-                    <li>Plant Protien</li>
+                    <li>
+                        <Link to="/">Home</Link>
+                    </li>
+                    <li>
+                        <Link to={"/cart"}>Cart</Link>
+                    </li>
+                    <li>
+                        <Link to="/products/whey">Whey Protien</Link>
+                    </li>
+                    <li>
+                        <Link to="/products/preworkout">Pre Workout</Link>
+                    </li>
+                    <li>
+                        <Link to="/products/vitamins">Vitamins</Link>
+                    </li>
                     <li>My Account</li>
                     <li>Order Tracking</li>
                     <li>Wishlist</li>
@@ -47,15 +59,15 @@ const Footer = () => {
                 <h3 className='text-2xl my-4'>Contact</h3>
                 <div className='my-2'>
                     <LocationOnIcon style={{marginRight: '10px'}}/>
-                    Bright Lifecare Pvt Ltd. Head Office, 3rd Floor, Parsvnath Arcadia, T - 01, M G Road Sector 14, Gurgaon - 122001, Haryana, India
+                    Ahmedabad - 380001, Gujarat, India
                 </div>
                 <div className='my-2'>
                     <PhoneIcon style={{marginRight: '10px'}}/>
-                    +91 85 277 32 632
+                    +91 99999 99999
                 </div>
                 <div className='my-2'>
                     <EmailIcon style={{marginRight: '10px'}}/>
-                    info@Muscleblaze.com
+                    info@onenutrition.com
                 </div>
             </div>
         </div>

@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux";
 import { login } from '../redux/apiCalls';
+import bgvideo from '../video/loginBg.webm'
 
 const Login = () => {
     const dispatch = useDispatch();
@@ -13,9 +14,22 @@ const Login = () => {
         e.preventDefault();
         login(dispatch, { username, password });
     }
-
+    
+    // background: "linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url('https://images.pexels.com/photos/6984650/pexels-photo-6984650.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940') center", 
+    // backgroundSize: "cover"
     return (
-        <div className="h-screen w-screen flex justify-center items-center" style={{background: "linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url('https://images.pexels.com/photos/6984650/pexels-photo-6984650.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940') center", backgroundSize: "cover"}}>
+        <div className="h-screen w-screen flex justify-center items-center" style={{
+            }}>
+            <video autoPlay muted loop id="loginVideo" style={{ 
+                position: "fixed",
+                right: 0,
+                bottom: 0,
+                minWidth: "100%",
+                minHeight: "100%", 
+                zIndex: -1
+                }}>
+                <source src={bgvideo} type="video/mp4" />
+            </video>
             <form className="bg-white w-4/5 sm:w-1/4 flex flex-col p-4">
                 <h1 className="text-3xl m-2">SIGN IN</h1>
                 <input className="flex-1 p-2 m-2 border border-slate-500 border-solid rounded-sm" placeholder="username" onChange={(e) => setUsername(e.target.value)}></input>
