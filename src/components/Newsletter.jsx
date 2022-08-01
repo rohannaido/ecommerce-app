@@ -9,8 +9,8 @@ const Newsletter = () => {
             <p className='p-4 text-center'>
                 Get timely updates from your favourite products
             </p>
-            <div className='w-4/5 sm:w-1/2 flex justify-between bg-white'>
-                <input className='outline-none pl-4 p-2' style={{flex: '10'}} placeholder="Your email..."></input>
+            <div className='w-4/5 sm:w-1/2 flex  justify-between bg-white'>
+                <input className='outline-none px-5 py-3' style={{flex: '10'}} placeholder="Your email..."></input>
                 <button className='hover:bg-slate-700 hover:text-white w-6' style={{flex: '1'}}>
                     <SendOutlinedIcon />
                 </button>

@@ -15,12 +15,12 @@ const Navbar = () => {
             <div className='flex flex-row justify-between'>
                 <div className=' flex flex-row items-center flex-1'>
                     <div className='flex flex-row mx-2 border-solid border border-slate-900 rounded justify-center'>
-                        <input className='bg-transparent p-1 focus:outline-none w-12 sm:w-48' placeholder='Search'></input>
+                        <input className='bg-transparent p-1 focus:outline-none px-3 w-12 sm:w-48' placeholder='Search'></input>
                         <Search className='m-2'></Search>
                     </div>
                 </div>
                 <Link to="/">
-                    <div className=' flex flex-column justify-center items-center text-3xl font-bold flex-1'>
+                    <div className=' flex flex-column hover:text-4xl justify-center items-center text-3xl font-bold flex-1'>
                         ONE
                     </div>
                 </Link>

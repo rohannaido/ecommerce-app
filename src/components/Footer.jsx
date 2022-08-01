@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 
 const Footer = () => {
     return (
-        <div className="flex flex-col sm:flex-row" style={{height: '50vh'}}>
+        <div className="flex flex-col sm:flex-row mb-10" style={{}}>
             <div className="flex-1 p-4 flex flex-col">
                 <h1 className='text-4xl font-bold my-2'>
                     ONE
